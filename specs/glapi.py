@@ -3515,6 +3515,7 @@ glapi.addFunctions([
 
     # GL_OVR_multiview
     GlFunction(Void, "glFramebufferTextureMultiviewOVR", [(GLenum, "target"), (GLenum, "attachment"), (GLtexture, "texture"), (GLint, "level"), (GLint, "baseViewIndex"), (GLsizei, "numViews")]),
+    GlFunction(Void, "glFramebufferTextureMultisampleMultiviewOVR", [(GLenum, "target"), (GLenum, "attachment"), (GLtexture, "texture"), (GLint, "level"), (GLint, "baseViewIndex"), (GLsizei, "samples"), (GLsizei, "numViews")]),
     GlFunction(Void, "glNamedFramebufferTextureMultiviewOVR", [(GLframebuffer, "framebuffer"), (GLenum, "attachment"), (GLtexture, "texture"), (GLint, "level"), (GLint, "baseViewIndex"), (GLsizei, "numViews")]),
     
     # GL_PGI_misc_hints

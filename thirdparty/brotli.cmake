@@ -1,5 +1,7 @@
 if (${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     set (BROTLI_OS "OS_LINUX")
+elseif (${CMAKE_SYSTEM_NAME} MATCHES "QNX")
+    set (BROTLI_OS "OS_QNX")
 elseif (${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
     set (BROTLI_OS "OS_FREEBSD")
 elseif (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")

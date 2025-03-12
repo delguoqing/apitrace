@@ -90,6 +90,10 @@ classifyLibrary(const char *pathname)
         strcmp(filename, "libGLESv2.so.2") == 0) {
         return LIB_GLES2;
     }
+
+    if (strcmp(filename, "libIMGGLESv2.so") == 0) {
+        return LIB_GLES2;
+    }
 #endif
 
     /*
@@ -119,6 +123,7 @@ void * dlopen(const char *filename, int flag)
     }
 
     LibClass libClass = classifyLibrary(filename);
+    os::log("apitrace: dlopen \"%s\", class=%d\n", filename, libClass);
     bool intercept = libClass != LIB_UNKNOWN;
 
     if (intercept) {

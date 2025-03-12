@@ -559,10 +559,16 @@ if (NOT WIN32 AND NOT ENABLE_STATIC_EXE)
         find_package (PNG)
     endif ()
 
+
     find_package (PkgConfig)
-    if (PKG_CONFIG_FOUND)
+    if (NOT CMAKE_CROSSCOMPILING AND PKG_CONFIG_FOUND)
         pkg_check_modules (BROTLIDEC IMPORTED_TARGET libbrotlidec>=1.0.7)
+        message("BROTLIDEC FOUND ${BROTLIDEC_FOUND}")
         pkg_check_modules (BROTLIENC IMPORTED_TARGET libbrotlienc>=1.0.7)
+        message("BROTLIENC FOUND ${BROTLIENC_FOUND}")
+    else ()
+        set (BROTLIDEC_FOUND 0)
+        set (BROTLIENC_FOUND 0)
     endif ()
 
     find_package (GTest)

@@ -164,6 +164,26 @@ if (WIN32 OR APPLE OR X11_FOUND)
     install_pdb (glretrace DESTINATION bin)
 endif ()
 
+if (CMAKE_SYSTEM_NAME STREQUAL "QNX")
+    add_executable (eglretrace
+        glws_egl_qnx.cpp
+        glproc_egl.cpp
+    )
+
+    add_dependencies (eglretrace glproc)
+
+    target_link_libraries (eglretrace
+        retrace_common
+        glretrace_common
+        glhelpers
+        glproc
+        screen
+        ${CMAKE_THREAD_LIBS_INIT}
+        ${CMAKE_DL_LIBS}
+    )
+    install (TARGETS eglretrace RUNTIME DESTINATION bin)    
+endif()
+
 if (ENABLE_EGL AND X11_FOUND AND NOT WIN32 AND NOT APPLE AND NOT ENABLE_WAFFLE)
     add_executable (eglretrace
         glws_xlib.cpp
