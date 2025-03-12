@@ -60,3 +60,4 @@ Testing
 os_thread_test
 /build
 version.h
+.DS_Store
