@@ -14,6 +14,11 @@ About **apitrace**
 See the [apitrace homepage](https://apitrace.github.io/) for more details.
 
 
+Changes made by this fork
+=========================
+
+* Added trace and retrace support for QNX (only tested on QNX 7.1)
+
 Status
 ======
 

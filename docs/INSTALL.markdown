@@ -99,6 +99,22 @@ Additional requirements:
 * [Windows 10 SDK](https://dev.windows.com/en-us/downloads/windows-10-sdk)
   for D3D11.3 headers.
 
+# QNX #
+
+Building for QNX requires you to have QNX SDK.
+
+## Environment Variable ##
+$QNX_HOST should be set to qnx toolchain.
+$QNX_TARGET should be set to qnx sdk.
+
+## Working around QNX SDK setup problem ##
+export PATH=$PATH:$QNX_HOST/usr/bin/
+ln -s $QNX_HOST/usr/bin/ld $QNX_HOST/usr/bin/ntoaarch64-ld
+
+## Build ##
+cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_TOOLCHAIN_FILE=./cmake/toolchain/aarch64-qnx.cmake -DCMAKE_INSTALL_PREFIX=./install -DENABLE_GUI=OFF -DENABLE_X11=OFF
+make -j32 -C build install
+
 ### CMake GUI ###
 
 To build with Visual Studio first open a Command Prompt window (*not* Visual

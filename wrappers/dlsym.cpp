@@ -123,7 +123,6 @@ void * dlopen(const char *filename, int flag)
     }
 
     LibClass libClass = classifyLibrary(filename);
-    os::log("apitrace: dlopen \"%s\", class=%d\n", filename, libClass);
     bool intercept = libClass != LIB_UNKNOWN;
 
     if (intercept) {
